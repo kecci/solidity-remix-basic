@@ -28,6 +28,13 @@
   - [Location](#location)
     - [Storage vs memory](#storage-vs-memory)
     - [Reference \& Copy Location](#reference--copy-location)
+  - [Array](#array)
+    - [Fixed Array](#fixed-array)
+    - [Dynamic Array](#dynamic-array)
+    - [Length Array](#length-array)
+    - [Push array (insert, last insert)](#push-array-insert-last-insert)
+    - [Pop (last out)](#pop-last-out)
+  - [Source](#source)
 
 ## Basic Syntax
 First we want to look at the basic syntax in solidity code. For example code on here: [/contracts/BasicSyntaxContract.sol](/contracts/BasicSyntaxContract.sol)
@@ -346,3 +353,111 @@ Reference Location:
         return (localMemoryArray1, localMemoryArray2); // isinya sama (10, 2, 3) & (10, 2, 3)
     }
 ```
+
+## Array
+You can see the code on here: [/contracts/ArrayContract.sol](/contracts/ArrayContract.sol)
+
+### Fixed Array
+```solidity
+// Fixed
+contract ArrayContract {
+
+    function getData() public pure returns (uint[5] memory) {
+        uint[5] memory data = [uint(50), 60, 70, 80, 100];
+        return data;
+    }
+
+    function getSingleData() public pure returns (uint) {
+        uint[5] memory data = [uint(50), 60, 70, 80, 100];
+        return data[1]; // 60, karena index start dari 0.
+    }
+
+    uint[5] datas; // state variable, public dan permanent
+
+    function getDataPublic() public returns (uint){
+        datas = [uint(50), 60, 70, 80, 100]; // fixed array
+        return datas[1];
+    }
+}
+```
+
+### Dynamic Array
+```solidity
+// Dynamic
+contract DynaimcArrayContract {
+    /* Cara 1: Using inline */
+    uint[] data;
+
+    function getData() public returns (uint[] memory) {
+        data = [60, 70, 30, 40];
+        return data;
+    }
+
+    /* Cara 2: Using new empty */
+    uint[] dataNew;
+
+    function getDataNew() public returns (uint[] memory) {
+        dataNew = new uint[](3);
+        
+        dataNew[0] = 10;
+        dataNew[1] = 20;
+        dataNew[2] = 30;
+
+        return dataNew;
+    }
+}
+```
+
+### Length Array
+```solidity
+contract ArrayLenghtContract {
+    uint[7] data;
+
+    function arrayExample() public payable returns (uint[7] memory) {
+        data = [uint(10), 20, 30, 40, 50, 60];
+        return data;
+    }
+
+    function arrayLength() public returns (uint) {
+        uint x = data.length;
+        return x;
+    }
+}
+```
+
+### Push array (insert, last insert)
+```solidity
+contract PushArrayContract {
+    uint[] arr;
+
+    function insert() public returns (uint[] memory) {
+        arr = [1, 2, 3];
+
+        //Push array 
+        arr.push(4);
+        arr.push(5);
+
+        return arr; // 1, 2, 3, 4, 5
+    }
+}
+```
+
+### Pop (last out)
+```solidity
+contract PopArrayContract {
+    uint[] arr;
+
+    function pop() public returns (uint[] memory) {
+        arr = [1, 2, 3];
+
+        //Push array 
+        arr.pop();
+        arr.pop();
+
+        return arr; // 1
+    }
+}
+```
+
+## Source
+- https://www.youtube.com/watch?v=s-OhwH1gs9w&list=PLH1gH0TmFBBhvZi4kEqU6kCjyv_y8qBae
