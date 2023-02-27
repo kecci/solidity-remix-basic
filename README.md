@@ -53,6 +53,7 @@
     - [Multiple Inheritence](#multiple-inheritence)
   - [Payable](#payable)
   - [Abstract](#abstract)
+  - [Next](#next)
   - [Source](#source)
 
 ## Basic Syntax
@@ -732,6 +733,11 @@ contract Hitung is AbstractContract {
     }   
 }
 ```
+
+## Next
+After we know about the syntax solidity, we also could simulate the blockchain test VM with ganache and metamask, also implement UI/UX with react truffle box, next will be in here: 
+
+[](https://github.com/kecci/solidity-truffle-ganache-box)
 
 ## Source
 - https://www.youtube.com/watch?v=s-OhwH1gs9w&list=PLH1gH0TmFBBhvZi4kEqU6kCjyv_y8qBae
