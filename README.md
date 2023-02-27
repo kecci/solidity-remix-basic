@@ -34,6 +34,10 @@
     - [Length Array](#length-array)
     - [Push array (insert, last insert)](#push-array-insert-last-insert)
     - [Pop (last out)](#pop-last-out)
+  - [Struct](#struct)
+    - [Struct data function insert](#struct-data-function-insert)
+    - [Struct data inline insert](#struct-data-inline-insert)
+  - [Struct data array](#struct-data-array)
   - [Source](#source)
 
 ## Basic Syntax
@@ -457,6 +461,53 @@ contract PopArrayContract {
         return arr; // 1
     }
 }
+```
+
+## Struct
+
+```solidity
+    struct Book {
+        string title;
+        string author;
+        uint id;
+        bool isReady;
+    }
+```
+
+### Struct data function insert
+```
+    Book book1;
+
+    function addBook() public {
+        book1 = Book("pemograman solidity", "john", 1, true);
+    }
+
+    function getBook() public view returns (string memory, string memory, uint, bool) {
+        return (book1.title, book1.author, book1.id, book1.isReady);
+    }
+```
+
+### Struct data inline insert
+```solidity
+    Book book2 = Book("membuat dapps", "kennedy", 12, false);
+
+    function getBook2() public view returns (string memory, string memory, uint, bool) {
+        return (book2.title, book2.author, book2.id, book2.isReady);
+    }
+```
+
+## Struct data array
+```solidity
+    Book[] public books;
+
+    function newBook(string memory title, string memory author, uint id, bool isReady) public {
+        books.push(Book(title, author, id, isReady));
+    }
+
+    function infoBook(uint _index) public view returns (string memory, string memory, uint, bool) {
+        Book storage book = books[_index];
+        return (book.title, book.author, book.id, book.isReady);
+    }
 ```
 
 ## Source
