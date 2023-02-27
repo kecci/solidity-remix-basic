@@ -25,6 +25,9 @@
     - [Address of Sender](#address-of-sender)
     - [Address of Smart Contract](#address-of-smart-contract)
     - [Transfer \& Send Address](#transfer--send-address)
+  - [Location](#location)
+    - [Storage vs memory](#storage-vs-memory)
+    - [Reference \& Copy Location](#reference--copy-location)
 
 ## Basic Syntax
 First we want to look at the basic syntax in solidity code. For example code on here: [/contracts/BasicSyntaxContract.sol](/contracts/BasicSyntaxContract.sol)
@@ -285,5 +288,61 @@ You can see the code on here: [/contracts/AddressContract.sol](/contracts/Addres
     function sendFund(address payable _address, uint amount) public returns(bool) {
         // _address -> address of receiver
         _address.send(amount * ether1);
+    }
+```
+
+## Location
+
+You can see the code on here: [/contracts/LocationContract.sol](/contracts/LocationContract.sol)
+
+Ada 4 tipe penyimpanan smart contract:
+1. storage: lokasi penyimpanan sifatnya permanen (disemua fungsi). seperti hardisk. state variable. gas lebih besar.
+2. memory: gas lebih kecil. hanya bisa di akses di fungsi saja. seperti ram.
+3. calldata: lokasi tidak dapat di modification, lalu sifatnya tidak persistent / tetap, lokasi default parameternya.
+4. stack: data sifat nya non-persistent, mirip calldata. dikelola langsung oleh vm ethereum. menggunakan lokasi data stack tersebut untuk variable selama ada eksekusi. sampai 1024 level.
+
+
+### Storage vs memory
+```solidity
+    // storage
+    bool isReady; // storage
+    string name; // storage
+
+    function iniFungsi() public {
+        // values 
+        bool isOk; // memory
+        uint number; // memory
+        address account; // memory
+    }
+```
+
+### Reference & Copy Location 
+
+Copy Location:
+```solidity
+    function iniValue() public pure returns (uint) {
+        uint localVar1 = 10;
+        uint localVar2 = 20;
+
+        localVar1 = localVar2; // copy, bukan reference, tidak reflection
+        localVar1 = 40; 
+
+        return localVar1; // 40
+    }
+```
+
+Reference Location:
+```solidity
+    function iniFungsi() public pure returns (uint[] memory, uint[] memory) {
+        uint[] memory localMemoryArray1 = new uint[](3);
+
+        localMemoryArray1[0] = 1;
+        localMemoryArray1[1] = 2;
+        localMemoryArray1[2] = 3;
+
+        uint[] memory localMemoryArray2 = localMemoryArray1; // reference, bisa reflection
+        localMemoryArray1[0] = 10; // berpengaruh pada memory1 & memory2 (karena reference)
+
+        return (localMemoryArray1, localMemoryArray2); // isinya sama (10, 2, 3) & (10, 2, 3)
     }
 ```
