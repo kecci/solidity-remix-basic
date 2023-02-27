@@ -46,6 +46,11 @@
     - [External Contract](#external-contract)
     - [Inheritence Contract from Parent](#inheritence-contract-from-parent)
   - [Constructor](#constructor)
+  - [Inheritence](#inheritence)
+    - [Single Inheritence](#single-inheritence)
+    - [Multi Level Inheritence](#multi-level-inheritence)
+    - [Hierarchy Inheritence](#hierarchy-inheritence)
+    - [Multiple Inheritence](#multiple-inheritence)
   - [Source](#source)
 
 ## Basic Syntax
@@ -647,6 +652,20 @@ contract ConstructorContract {
     }
 }
 ```
+
+## Inheritence
+
+### Single Inheritence
+You can see the code on here: [/contracts/InheritenceContract.sol](/contracts/InheritenceContract.sol)
+
+### Multi Level Inheritence
+You can see the code on here: [/contracts/MultiLevelInheritenceContract.sol](/contracts/MultiLevelInheritenceContract.sol)
+
+### Hierarchy Inheritence
+You can see the code on here: [/contracts/HierarchyContract.sol](/contracts/HierarchyContract.sol)
+
+### Multiple Inheritence
+You can see the code on here: [/contracts/MultipleInheritenceContract.sol](/contracts/MultipleInheritenceContract.sol)
 
 ## Source
 - https://www.youtube.com/watch?v=s-OhwH1gs9w&list=PLH1gH0TmFBBhvZi4kEqU6kCjyv_y8qBae
