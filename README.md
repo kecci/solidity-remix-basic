@@ -38,6 +38,9 @@
     - [Struct data function insert](#struct-data-function-insert)
     - [Struct data inline insert](#struct-data-inline-insert)
     - [Struct data array](#struct-data-array)
+  - [Mapping](#mapping)
+    - [Mapping](#mapping-1)
+    - [Nested Mapping](#nested-mapping)
   - [Source](#source)
 
 ## Basic Syntax
@@ -508,6 +511,40 @@ contract PopArrayContract {
         Book storage book = books[_index];
         return (book.title, book.author, book.id, book.isReady);
     }
+```
+
+## Mapping
+You can see the code on here: [/contracts/MappingContract.sol](/contracts/MappingContract.sol)
+
+### Mapping
+
+```solidity
+contract MappingContract {
+    mapping(address => uint) public myMap;
+    
+    function set(address _addr, uint _i) public {
+        myMap[_addr] = _i;
+    }
+
+    function get(address _addr) public returns (uint){
+        return myMap[_addr];
+    }
+}
+```
+
+### Nested Mapping
+```solidity
+contract NestedMappingContract {
+    mapping(address => mapping(uint => bool)) public nested;
+
+    function set(address _addr, uint _i, bool _boo) public {
+        nested[_addr][_i] = _boo;
+    }
+
+    function get(address _addr, uint _i) public returns (bool){
+        return nested[_addr][_i];
+    }
+}
 ```
 
 ## Source
