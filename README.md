@@ -45,6 +45,7 @@
     - [Parent Contract](#parent-contract)
     - [External Contract](#external-contract)
     - [Inheritence Contract from Parent](#inheritence-contract-from-parent)
+  - [Constructor](#constructor)
   - [Source](#source)
 
 ## Basic Syntax
@@ -622,6 +623,27 @@ contract NewContract is Parent {
 
     function getInfo() public view returns(uint) {
         return c.info();
+    }
+}
+```
+
+## Constructor
+You can see the code on here: [/contracts/ConstructorContract.sol](/contracts/ConstructorContract.sol)
+
+```
+contract ConstructorContract {
+    int totalSupply;
+
+    address private owner = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+
+    constructor(int _totalSupply) public {
+        if (owner == msg.sender) {
+            totalSupply = _totalSupply;
+        }
+    }
+
+    function getTotalSupply() public view returns (int) {
+        return totalSupply;
     }
 }
 ```
