@@ -21,6 +21,10 @@
     - [Payable function](#payable-function)
     - [Overload function](#overload-function)
     - [Fallback and receive functions](#fallback-and-receive-functions)
+    - [Address](#address)
+    - [Address of Sender](#address-of-sender)
+    - [Address of Smart Contract](#address-of-smart-contract)
+    - [Transfer \& Send Address](#transfer--send-address)
 
 ## Basic Syntax
 First we want to look at the basic syntax in solidity code. For example code on here: [/contracts/BasicSyntaxContract.sol](/contracts/BasicSyntaxContract.sol)
@@ -228,4 +232,58 @@ contract FallbackReceiveContract {
     // for every call with empty calldata.
     receive() external payable { x = 2; y = msg.value; }
 }
+```
+
+### Address
+
+You can see the code on here: [/contracts/AddressContract.sol](/contracts/AddressContract.sol)
+
+### Address of Sender
+```solidity
+    address public caller;
+
+    // Address of sender: 2 kali action, pertama di set, baru di get caller nya
+    function getCallerAddress() public returns(address) {
+        caller = msg.sender;
+        return caller;
+    }
+
+    // Address of sender: Lebih ringkas daripada function sebelumnya, langsung set & get.
+    function getCallerAddressWithView() public view returns(address caller) {
+        caller = msg.sender;
+    }
+```
+
+### Address of Smart Contract
+```solidity
+    function getAddressThis() public view returns(address) {
+        address myAddress = address(this);
+        return myAddress;
+    }
+```
+
+### Transfer & Send Address
+```solidity
+    // Set Saldo
+    uint receivedAmount;
+
+    // Constant for 1 ether to wei
+    uint ether1 = 1000000000000000000;
+
+    // Add ether balance to smart contract
+    function receiveEther() payable public {
+        receivedAmount = msg.value;
+    }
+
+    // Address payable, there is 2 type: send and transfer
+    function transferEther(address payable _address, uint amount) public {
+        // _address -> address of receiver
+        _address.transfer(amount * ether1);
+    }
+
+    // Send
+    function sendFund(address payable _address, uint amount) public returns(bool) {
+        // _address -> address of receiver
+        _address.send(amount * ether1);
+    }
 ```
