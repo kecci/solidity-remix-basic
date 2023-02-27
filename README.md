@@ -37,7 +37,7 @@
   - [Struct](#struct)
     - [Struct data function insert](#struct-data-function-insert)
     - [Struct data inline insert](#struct-data-inline-insert)
-  - [Struct data array](#struct-data-array)
+    - [Struct data array](#struct-data-array)
   - [Source](#source)
 
 ## Basic Syntax
@@ -496,7 +496,7 @@ contract PopArrayContract {
     }
 ```
 
-## Struct data array
+### Struct data array
 ```solidity
     Book[] public books;
 
