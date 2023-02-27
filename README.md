@@ -1,0 +1,152 @@
+# solidity-remix-basic
+
+## Table of Contents
+- [solidity-remix-basic](#solidity-remix-basic)
+  - [Table of Contents](#table-of-contents)
+  - [Basic Syntax](#basic-syntax)
+    - [1. Version Line](#1-version-line)
+    - [2. Contract Line](#2-contract-line)
+    - [3. Variable Line](#3-variable-line)
+    - [4. Function Line](#4-function-line)
+  - [Basic Usage](#basic-usage)
+    - [Remix IDE](#remix-ide)
+    - [Workspace](#workspace)
+    - [Remixd](#remixd)
+    - [I. Compile Contract](#i-compile-contract)
+    - [II. Deploy Contract](#ii-deploy-contract)
+    - [III. Transaction Contract](#iii-transaction-contract)
+  - [Variable and Types](#variable-and-types)
+  - [Function](#function)
+
+## Basic Syntax
+First we want to look at the basic syntax in solidity code. For example code on here: [/contracts/BasicSyntaxContract.sol](/contracts/BasicSyntaxContract.sol)
+
+or it look like this:
+```solidity
+pragma solidity >=0.7.0 <0.9.0;
+
+contract BasicSyntaxContract {
+    // init variables
+    uint storedData;
+    
+    // set storedData   
+    function set(uint x) public {
+        storedData = x;
+    }
+    
+    // get storedData
+    function get() public view returns (uint) {
+        return storedData;
+    }
+}
+```
+
+There is always 4 components for the syntax line:
+1. Version Line
+2. Contract Line
+3. Variable Line
+4. Function Line
+
+### 1. Version Line
+```solidity
+pragma solidity >=0.7.0 <0.9.0;
+```
+
+### 2. Contract Line
+```solidity
+contract BasicSyntaxContract {
+    ....
+    // Here we define variables and functions
+}
+```
+
+### 3. Variable Line
+```solidity
+    // init variables
+    uint storedData;
+```
+
+### 4. Function Line
+```solidity
+    // set storedData   
+    function set(uint x) public {
+        storedData = x;
+    }
+```
+
+## Basic Usage
+
+### Remix IDE
+To running the contract we use Remix IDE on https://remix.ethereum.org/
+![remix-ide](/assets/remix-ide.png)
+
+### Workspace
+There is 2 types of workspaces:
+1. local browser (default)
+2. local filesystem (localhost, we need to use `remixd`)
+
+### Remixd
+To install remixd and usage, you can follow: https://remix-ide.readthedocs.io/en/latest/remixd.html
+
+Here simple steps:
+1. Install remixd
+2. Run remixd on the directory/folder where it is the workspace, command: `remixd` ![img](assets/remixd.png)
+3. Choose workspace on remix-ide on `localhost`. ![img](assets/workspace-localhost.png)
+4. Done, connected to localhost. ![img](/assets/workspace-localhost-choosed.png)
+
+
+### I. Compile Contract
+After we choose our `workspace`, we can compile the contract that we code before. 
+
+> To compile the contract, we need to choose the `(contract-name)` of `file-name.sol`. 
+> 
+> For Example:
+> 
+> `(BasicSyntaxContract) BasicSyntaxContract.sol`
+
+Here is the illustration to compile the contract:
+![img](/assets/compile.png)
+
+So the steps to compile are:
+1. Choose the contract and file
+2. Submit `Compile contract`. 
+3. It generated an `artifacts file` on your contracts folder. ![img](assets/artifacts.png)
+
+### II. Deploy Contract
+
+![img](/assets/deploy-form.png)
+
+In deploy sections, we can see some input:
+- Environments -> The Virtual Machine that we use
+- Accounts -> Address account that want to use
+- Gas limit -> Limit gas
+- Value -> value of cost, we can use `wei` or `eth`
+- Contract -> contract that we want to deploy
+
+Steps:
+1. We input all the form deployment
+2. Submit deploy
+3. Deployed to transaction section and our eth address will cutted for the creation of contract. ![img](assets/deployed-contracts.png)
+
+### III. Transaction Contract
+After we deploy, we can see in the deployed contracts section. Some form of interface our transaction of the contract.
+
+In the code before, we have 2 functions:
+1. `function set` -> to set the data
+2. `function get` -> to get the data
+
+We also can see the result if the interface are generated on the deployed contracts.
+
+![img](assets/deployed-contract-example.png)
+
+Here example the transactions the submit button & logs:
+- set with the input with 10 value. ![img](assets/set-transactions.png)
+- get the data for 10 value. ![img](assets/get-transactions.png)
+
+## Variable and Types
+After we know basic syntax and basic usage, we want to know deep about variables and types of sol, we can see the example code on here: [/contracts/VariableTypes.sol](/contracts/VariableTypes.sol)
+
+## Function
+After we know basic syntax, usage, variables, and types, we want to know more usage of functions.
+
+TBD
