@@ -52,6 +52,7 @@
     - [Hierarchy Inheritence](#hierarchy-inheritence)
     - [Multiple Inheritence](#multiple-inheritence)
   - [Payable](#payable)
+  - [Abstract](#abstract)
   - [Source](#source)
 
 ## Basic Syntax
@@ -702,6 +703,33 @@ contract PayableContract {
         (bool success,) = _to.call{value : _amount}("");
         require(success, "Failed kirim ether to owner");
     }  
+}
+```
+
+## Abstract
+You can see the code on here: [/contracts/AbstractContract.sol](/contracts/AbstractContract.sol)
+
+```solidity
+pragma solidity >=0.7.0 <0.9.0;
+
+abstract contract AbstractContract {
+    function getAngka(uint a, uint b) public virtual;
+
+    function hitung() public virtual view returns (uint);
+}
+
+contract Hitung is AbstractContract {
+    uint panjang;
+    uint lebar;
+
+    function getAngka(uint a, uint b) public override {
+        panjang = a;
+        lebar = b;
+    }
+
+    function hitung() public override view returns (uint) {
+        return panjang * lebar;
+    }   
 }
 ```
 
