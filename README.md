@@ -21,7 +21,7 @@
     - [Payable function](#payable-function)
     - [Overload function](#overload-function)
     - [Fallback and receive functions](#fallback-and-receive-functions)
-    - [Address](#address)
+  - [Address](#address)
     - [Address of Sender](#address-of-sender)
     - [Address of Smart Contract](#address-of-smart-contract)
     - [Transfer \& Send Address](#transfer--send-address)
@@ -234,7 +234,7 @@ contract FallbackReceiveContract {
 }
 ```
 
-### Address
+## Address
 
 You can see the code on here: [/contracts/AddressContract.sol](/contracts/AddressContract.sol)
 
