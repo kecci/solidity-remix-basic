@@ -735,7 +735,7 @@ contract Hitung is AbstractContract {
 ```
 
 ## Next
-After we know about the syntax solidity, we also could simulate the blockchain test VM with ganache and metamask, also implement UI/UX with react truffle box, next will be in here: 
+After we know about the syntax solidity, we also could simulate the blockchain test VM with ganache and metamask, also implement UI/UX with react truffle box, next will be in here: https://github.com/kecci/solidity-truffle-ganache-remix
 
 [](https://github.com/kecci/solidity-truffle-ganache-box)
 
