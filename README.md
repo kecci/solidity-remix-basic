@@ -1,10 +1,10 @@
 # solidity-remix-basic
-Part 1: Solidity Basic for Learning Smart Contract with Remix IDE
+Chapter 1: Solidity Basic for Learning Smart Contract with Remix IDE
 
-## Step Parts
-- Part 1: https://github.com/kecci/solidity-remix-basic (you in here)
-- Part 2: https://github.com/kecci/solidity-truffle-ganache-remix
-- Part 3: https://github.com/kecci/solidity-react-truffle-box
+## The chapters
+- Chapter 1: https://github.com/kecci/solidity-remix-basic (you in here)
+- Chapter 2: https://github.com/kecci/solidity-truffle-ganache-remix
+- Chapter 3: https://github.com/kecci/solidity-react-truffle-box
 
 ## Table of Contents
 - [solidity-remix-basic](#solidity-remix-basic)
