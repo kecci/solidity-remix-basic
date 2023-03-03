@@ -1,14 +1,14 @@
-# solidity-remix-basic
-Chapter 1: Solidity Basic for Learning Smart Contract with Remix IDE
+# Solidity Remix Basic Syntax
+Chapter 1: Solidity Basic Syntax for Learning Smart Contract with Remix IDE
 
 ## The Chapters
-- Chapter 1: https://github.com/kecci/solidity-remix-basic (you in here)
-- Chapter 2: https://github.com/kecci/solidity-truffle-ganache-remix
-- Chapter 3: https://github.com/kecci/solidity-react-truffle-box
+- Chapter 1: [Solidity Remix Basic Syntax](https://github.com/kecci/solidity-remix-basic) (you in here)
+- Chapter 2: [Simulation VM with Ganache and MetaMask for Solidity Smart Contract](https://github.com/kecci/solidity-truffle-ganache-remix)
+- Chapter 3: [Building Simple Decentralized Application with React and Truffle Box](https://github.com/kecci/solidity-react-truffle-box)
 
 ## Table of Contents
-- [solidity-remix-basic](#solidity-remix-basic)
-  - [Step Parts](#step-parts)
+- [Solidity Remix Basic Syntax](#solidity-remix-basic-syntax)
+  - [The Chapters](#the-chapters)
   - [Table of Contents](#table-of-contents)
   - [Basic Syntax](#basic-syntax)
     - [1. Version Line](#1-version-line)
